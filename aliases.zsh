@@ -3,6 +3,7 @@ alias k='kubectl'
 alias kc='kubectl apply -f'
 
 alias kpl='kube-pod-list'
+alias kdl='kube-deployment-list'
 
 
 
@@ -27,7 +28,6 @@ alias kpv='kgv pod'
 alias kdRa='kR deployment --all'
 alias kdR='kR deployment'
 alias kdlw='kg deployments --watch'
-alias kdl='kg deployments'
 alias kdv='kgv deployment'
 # Services
 alias ksRa='kR service --all'
