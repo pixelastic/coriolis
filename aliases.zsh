@@ -1,5 +1,13 @@
 # Generic faster aliases
 alias k='kubectl'
+alias kc='kubectl apply -f'
+
+alias kpl='kube-pod-list'
+
+
+
+
+
 alias kR='k delete'
 alias kg='k get -o wide'
 alias kgv='kg -o json'
@@ -8,13 +16,12 @@ alias kRa='kR --all'
 alias kga='kg all'
 alias kgaw="watch 'kubectl get all'"
 # Kind-agnostic
-alias kc='kubectl apply -f'
 alias kl='kubectl logs'
 # Pods
 alias kpRa='kR pod --all'
 alias kpR='kR pod'
-alias kplw='kg pods --watch'
-alias kpl='kg pods'
+# alias kplw='kg pods --watch'
+# alias kpl='kg pods'
 alias kpv='kgv pod'
 # Deployment
 alias kdRa='kR deployment --all'

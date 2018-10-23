@@ -1,0 +1,64 @@
+{
+  "name": "coriolis",
+  "version": "0.0.1",
+  "description": "Aliases and helpers to handle a Kubernetes cluster.",
+  "main": "build/lib/index.js",
+  "bin": {
+    "kube-cronjob-list": "./bin/kube-cronjob-list",
+    "kube-deployment-list": "./bin/kube-deployment-list",
+    "kube-ingress-list": "./bin/kube-ingress-list",
+    "kube-job-list": "./bin/kube-job-list",
+    "kube-pod-list": "./bin/kube-pod-list",
+    "kube-service-list": "./bin/kube-service-list",
+    "kube-volumeclaim-list": "./bin/kube-volumeclaim-list",
+    "kube-volume-list": "./bin/kube-volume-list"
+  },
+  "files": [],
+  "scripts": {
+    "lint": "./scripts/lint",
+    "build": "./scripts/build",
+    "build:watch": "./scripts/build-watch",
+    "release": "./scripts/release"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pixelastic/coriolis.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pixelastic/coriolis/issues"
+  },
+  "homepage": "https://github.com/pixelastic/coriolis#readme",
+  "devDependencies": {
+    "@babel/cli": "7.0.0-beta.51",
+    "@babel/core": "7.0.0-beta.51",
+    "@babel/node": "7.0.0-beta.51",
+    "@babel/plugin-proposal-object-rest-spread": "7.0.0-beta.51",
+    "@babel/preset-env": "7.0.0-beta.51",
+    "babel-core": "7.0.0-bridge.0",
+    "babel-eslint": "8.2.3",
+    "babel-jest": "23.0.1",
+    "cli-truncate": "1.1.0",
+    "dotenv": "6.0.0",
+    "eslint": "4.19.1",
+    "eslint-config-algolia": "13.2.3",
+    "eslint-config-prettier": "2.9.0",
+    "eslint-plugin-import": "2.11.0",
+    "eslint-plugin-jest": "21.15.1",
+    "eslint-plugin-prettier": "2.6.0",
+    "jest": "23.0.0",
+    "prettier": "1.9.2",
+    "release-it": "7.6.2"
+  },
+  "dependencies": {
+    "chalk": "2.4.1",
+    "columnify": "1.5.4",
+    "dayjs": "1.7.7",
+    "firost": "0.0.6",
+    "lodash": "4.17.10",
+    "minimist": "1.2.0"
+  },
+  "optionalDependencies": {}
+}
