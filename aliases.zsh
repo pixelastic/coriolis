@@ -2,9 +2,18 @@
 alias k='kubectl'
 alias kc='kubectl apply -f'
 
+# Pods
 alias kpl='kube-pod-list'
+alias kplw='kube-pod-list-watch'
+# Deployments
 alias kdl='kube-deployment-list'
+alias kdlw='kube-deployment-list-watch'
+# Services
 alias ksl='kube-service-list'
+alias kslw='kube-service-list-watch'
+# Jobs
+alias kjl='kube-job-list'
+alias kjlw='kube-job-list-watch'
 
 
 
@@ -22,25 +31,17 @@ alias kl='kubectl logs'
 # Pods
 alias kpRa='kR pod --all'
 alias kpR='kR pod'
-# alias kplw='kg pods --watch'
-# alias kpl='kg pods'
 alias kpv='kgv pod'
 # Deployment
 alias kdRa='kR deployment --all'
 alias kdR='kR deployment'
-alias kdlw='kg deployments --watch'
-alias kdv='kgv deployment'
 # Services
 alias ksRa='kR service --all'
 alias ksR='kR service'
-alias kslw='kg services --watch'
-# alias ksl='kg services'
 alias ksv='kgv service'
 # Ingresses
 alias kiRa='kR ingress --all'
 alias kiR='kR ingress'
-alias kilw='kg ingress --watch'
-alias kil='kg ingress'
 alias kiv='kgv ingress'
 
 

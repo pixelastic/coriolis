@@ -1,4 +1,6 @@
 #!/usr/bin/env node
 /* eslint-disable import/no-commonjs */
-const pod = require('../build/lib/pod').default;
-pod.list();
+const kind = require('../build/lib/pod').default;
+(async () => {
+  console.info(await kind.list());
+})();

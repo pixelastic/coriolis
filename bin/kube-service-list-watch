@@ -1,0 +1,5 @@
+#!/usr/bin/env node
+/* eslint-disable import/no-commonjs */
+const kind = require('../build/lib/service').default;
+const helper = require('../build/lib/helper').default;
+helper.refreshTerminal(async () => await kind.list(), 2000);

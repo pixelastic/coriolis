@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /* eslint-disable import/no-commonjs */
-const kind = require('../build/lib/service').default;
+const kind = require('../build/lib/job').default;
 (async () => {
   console.info(await kind.list());
 })();
