@@ -1,0 +1,21 @@
+#!/usr/bin/env node
+/* eslint-disable import/no-commonjs */
+const cli = require('cli');
+const pod = require('../build/lib/pod').default;
+
+cli.parse(null, ['install', 'test', 'edit', 'remove', 'uninstall', 'ls']);
+
+console.log('Command is: ' + cli.command);
+
+// (async () => {
+//   const pods = await pod.allPodNames();
+//   cli.parse(null, pods);
+//   // console.log(`Command is: ${cli.command}`);
+// })();
+
+// kubectl exec -it {podname} /bin/bash
+
+// const kind = require('../build/lib/pod').default;
+// (async () => {
+//   console.info(await kind.list());
+// })();
