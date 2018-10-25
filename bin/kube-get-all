@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+kube-service-list
+kube-deployment-list
+kube-job-list
+kube-pod-list

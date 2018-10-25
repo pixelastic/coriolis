@@ -2,14 +2,13 @@
 alias k='kubectl'
 alias kR='k delete'
 alias kc='kubectl apply -f'
-alias kga='kg all'
+alias kga='kube-get-all'
 
 # Pods
 alias kpl='kube-pod-list'
 alias kplw='kube-pod-list-watch'
 alias kpR='kR pod'
 alias kpRa='kR pod --all'
-alias kps='kube-pod-ssh'
 # Deployments
 alias kdl='kube-deployment-list'
 alias kdlw='kube-deployment-list-watch'

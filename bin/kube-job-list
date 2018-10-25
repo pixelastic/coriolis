@@ -2,5 +2,8 @@
 /* eslint-disable import/no-commonjs */
 const kind = require('../build/lib/job').default;
 (async () => {
-  console.info(await kind.list());
+  const list = await kind.list();
+  if (list) {
+    console.info(list);
+  }
 })();
