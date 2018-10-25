@@ -59,7 +59,8 @@
     "firost": "0.0.6",
     "lodash": "4.17.10",
     "log-update": "2.3.0",
-    "minimist": "1.2.0"
+    "minimist": "1.2.0",
+    "term-size": "1.2.0"
   },
   "optionalDependencies": {}
 }
