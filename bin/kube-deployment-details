@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+if [ "$KUBE_DETAILS_INTERACTIVE" = 1 ]; then
+  kubectl get deployment -o json "$1" | jid
+else
+  kubectl get deployment -o json "$1" | jq '.'
+fi

@@ -1,0 +1,11 @@
+#!/usr/bin/env node
+/* eslint-disable import/no-commonjs */
+const kindName = process.argv[2];
+const _ = require('lodash');
+const helper = require('../build/lib/helper').default;
+(async () => {
+  const list = await helper.completion(kindName);
+  _.each(list, item => {
+    console.info(item);
+  });
+})();
