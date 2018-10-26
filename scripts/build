@@ -4,6 +4,7 @@ set -e
 mkdir -p ./build
 
 babel \
-  ./lib \
+  ./lib/*.js \
+  --ignore "lib/__tests__" \
   --out-dir ./build/lib
 

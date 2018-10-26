@@ -1,5 +1,0 @@
-#!/usr/bin/env node
-/* eslint-disable import/no-commonjs */
-const kind = require('../build/lib/deployment').default;
-const helper = require('../build/lib/helper').default;
-helper.refreshTerminal(async () => await kind.list(), 2000);

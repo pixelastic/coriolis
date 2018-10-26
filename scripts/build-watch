@@ -5,6 +5,7 @@ mkdir -p ./build
 
 babel \
   ./lib \
+  --ignore "lib/__tests__" \
   --out-dir ./build/lib \
   --watch \
   --verbose \

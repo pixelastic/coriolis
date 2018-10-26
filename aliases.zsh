@@ -7,58 +7,55 @@ alias kc='kubectl apply -f'
 alias kga='kube-get-all'
 
 # Pods {{{
-alias kpl='kube-pod-list'
-alias kplw='kube-pod-list-watch'
+alias kpl='kube-list pod'
+alias kplw='kube-list-watch pod'
 alias kpR='kR pod'
 alias kpRa='kR pod --all'
 alias kpv='kube-pod-details'
 alias kpvi='KUBE_DETAILS_INTERACTIVE=1 kube-pod-details'
 # Completion {{{
-function _completion_kube_pods {
+function _completion_kube_pod {
   reply=($(kube-completion "pod"))
 }
-compctl -K _completion_kube_pods kube-pod-details
+compctl -K _completion_kube_pod kube-pod-details
 # }}}
 # }}}
 
 # Deployments {{{
-alias kdl='kube-deployment-list'
-alias kdlw='kube-deployment-list-watch'
+alias kdl='kube-list deployment'
+alias kdlw='kube-list-watch deployment'
 alias kdR='kR deployment'
 alias kdRa='kR deployment --all'
-alias kdv='kgv deployment | jq "."'
 alias kdv='kube-deployment-details'
 alias kdvi='KUBE_DETAILS_INTERACTIVE=1 kube-deployment-details'
 # Completion {{{
-function _completion_kube_deployments {
+function _completion_kube_deployment {
   reply=($(kube-completion "deployment"))
 }
-compctl -K _completion_kube_deployments kube-deployment-details
+compctl -K _completion_kube_deployment kube-deployment-details
 # }}}
 # }}}
 
 # Services {{{
-alias ksl='kube-service-list'
-alias kslw='kube-service-list-watch'
+alias ksl='kube-list service'
+alias kslw='kube-list-watch service'
 alias ksR='kR service'
 alias ksRa='kR service --all'
-alias ksv='kgv service | jq "."'
 alias ksv='kube-service-details'
 alias ksvi='KUBE_DETAILS_INTERACTIVE=1 kube-service-details'
 # Completion {{{
-function _completion_kube_services {
+function _completion_kube_service {
   reply=($(kube-completion "service"))
 }
-compctl -K _completion_kube_services kube-service-details
+compctl -K _completion_kube_service kube-service-details
 # }}}
 # }}}
 
 # Jobs {{{
-alias kjl='kube-job-list'
-alias kjlw='kube-job-list-watch'
+alias kjl='kube-list job'
+alias kjlw='kube-list-watch job'
 alias kjR='kR job'
 alias kjRa='kR job --all'
-alias kjv='kgv job | jq "."'
 alias kjv='kube-job-details'
 alias kjvi='KUBE_DETAILS_INTERACTIVE=1 kube-job-details'
 # Completion {{{
@@ -66,6 +63,21 @@ function _completion_kube_job {
   reply=($(kube-completion "job"))
 }
 compctl -K _completion_kube_job kube-job-details
+# }}}
+# }}}
+
+# CronJobs {{{
+alias kcl='kube-list cronjob'
+alias kclw='kube-list-watch cronjob'
+alias kcR='kR cronjob'
+alias kcRa='kR cronjob --all'
+alias kcv='kube-cronjob-details'
+alias kcvi='KUBE_DETAILS_INTERACTIVE=1 kube-cronjob-details'
+# Completion {{{
+function _completion_kube_cronjob {
+  reply=($(kube-completion "cronjob"))
+}
+compctl -K _completion_kube_cronjob kube-cronjob-details
 # }}}
 # }}}
 

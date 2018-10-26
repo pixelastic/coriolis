@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
-kube-service-list
-kube-deployment-list
-kube-job-list
-kube-pod-list
+kube-list service
+kube-list deployment
+kube-list cronjob
+kube-list job
+kube-list pod

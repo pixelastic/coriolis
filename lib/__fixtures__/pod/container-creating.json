@@ -1,0 +1,151 @@
+{
+  "apiVersion": "v1",
+  "kind": "Pod",
+  "metadata": {
+    "creationTimestamp": "2018-10-26T07:47:56Z",
+    "generateName": "queue-writer-1540539960-",
+    "labels": {
+      "controller-uid": "3003c8a4-d8f3-11e8-b7ab-0800272c28ba",
+      "job-name": "queue-writer-1540539960"
+    },
+    "name": "queue-writer-1540539960-bz6ds",
+    "namespace": "default",
+    "ownerReferences": [
+      {
+        "apiVersion": "batch/v1",
+        "blockOwnerDeletion": true,
+        "controller": true,
+        "kind": "Job",
+        "name": "queue-writer-1540539960",
+        "uid": "3003c8a4-d8f3-11e8-b7ab-0800272c28ba"
+      }
+    ],
+    "resourceVersion": "166907",
+    "selfLink": "/api/v1/namespaces/default/pods/queue-writer-1540539960-bz6ds",
+    "uid": "73d7e204-d8f3-11e8-b7ab-0800272c28ba"
+  },
+  "spec": {
+    "containers": [
+      {
+        "command": ["fail", "run", "python", "main.py"],
+        "env": [
+          {
+            "name": "REDIS_HOST",
+            "value": "redis"
+          },
+          {
+            "name": "REDIS_PORT",
+            "value": "6379"
+          },
+          {
+            "name": "REDIS_PASSWORD"
+          },
+          {
+            "name": "REDIS_QUEUE_NAME",
+            "value": "daily_queue"
+          },
+          {
+            "name": "DOCSEARCH_TMP_DIR",
+            "value": "/tmp/queue-writer"
+          }
+        ],
+        "image": "pixelastic/docsearch-queue-writer",
+        "imagePullPolicy": "Always",
+        "name": "queue-writer",
+        "resources": {},
+        "terminationMessagePath": "/dev/termination-log",
+        "terminationMessagePolicy": "File",
+        "volumeMounts": [
+          {
+            "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+            "name": "default-token-m5hx8",
+            "readOnly": true
+          }
+        ]
+      }
+    ],
+    "dnsPolicy": "ClusterFirst",
+    "nodeName": "minikube",
+    "priority": 0,
+    "restartPolicy": "Never",
+    "schedulerName": "default-scheduler",
+    "securityContext": {},
+    "serviceAccount": "default",
+    "serviceAccountName": "default",
+    "terminationGracePeriodSeconds": 30,
+    "tolerations": [
+      {
+        "effect": "NoExecute",
+        "key": "node.kubernetes.io/not-ready",
+        "operator": "Exists",
+        "tolerationSeconds": 300
+      },
+      {
+        "effect": "NoExecute",
+        "key": "node.kubernetes.io/unreachable",
+        "operator": "Exists",
+        "tolerationSeconds": 300
+      }
+    ],
+    "volumes": [
+      {
+        "name": "default-token-m5hx8",
+        "secret": {
+          "defaultMode": 420,
+          "secretName": "default-token-m5hx8"
+        }
+      }
+    ]
+  },
+  "status": {
+    "conditions": [
+      {
+        "lastProbeTime": null,
+        "lastTransitionTime": "2018-10-26T07:47:56Z",
+        "status": "True",
+        "type": "Initialized"
+      },
+      {
+        "lastProbeTime": null,
+        "lastTransitionTime": "2018-10-26T07:47:56Z",
+        "message": "containers with unready status: [queue-writer]",
+        "reason": "ContainersNotReady",
+        "status": "False",
+        "type": "Ready"
+      },
+      {
+        "lastProbeTime": null,
+        "lastTransitionTime": "2018-10-26T07:47:56Z",
+        "message": "containers with unready status: [queue-writer]",
+        "reason": "ContainersNotReady",
+        "status": "False",
+        "type": "ContainersReady"
+      },
+      {
+        "lastProbeTime": null,
+        "lastTransitionTime": "2018-10-26T07:47:56Z",
+        "status": "True",
+        "type": "PodScheduled"
+      }
+    ],
+    "containerStatuses": [
+      {
+        "image": "pixelastic/docsearch-queue-writer",
+        "imageID": "",
+        "lastState": {},
+        "name": "queue-writer",
+        "ready": false,
+        "restartCount": 0,
+        "state": {
+          "waiting": {
+            "reason": "ContainerCreating"
+          }
+        }
+      }
+    ],
+    "hostIP": "10.0.2.15",
+    "phase": "Pending",
+    "qosClass": "BestEffort",
+    "startTime": "2018-10-26T07:47:56Z"
+  }
+}

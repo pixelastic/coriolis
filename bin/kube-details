@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+kind_name="$1"
+item_name="$2"
+if [ "$KUBE_DETAILS_INTERACTIVE" = 1 ]; then
+  kubectl get "$kind_name" -o json "$item_name" | jid
+else
+  kubectl get "$kind_name" -o json "$item_name" | jq '.'
+fi
