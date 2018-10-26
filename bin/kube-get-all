@@ -1,6 +1,29 @@
-#!/usr/bin/env bash
-kube-list service
-kube-list deployment
-kube-list cronjob
-kube-list job
-kube-list pod
+#!/usr/bin/env node
+/* eslint-disable import/no-commonjs */
+const pAll = require('p-all');
+const _ = require('lodash');
+const kindNames = [
+  'service',
+  'statefulset',
+  'deployment',
+  'cronjob',
+  'job',
+  'pod',
+];
+
+(async () => {
+  const all = await pAll(
+    _.map(kindNames, kindName => {
+      const kind = require(`../build/lib/${kindName}`).default;
+      return async function() {
+        return await kind.list();
+      };
+    })
+  );
+  _.each(all, line => {
+    if (_.isEmpty(line)) {
+      return;
+    }
+    console.info(line);
+  });
+})();

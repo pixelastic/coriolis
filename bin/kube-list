@@ -3,5 +3,8 @@
 const kindName = process.argv[2];
 const kind = require(`../build/lib/${kindName}`).default;
 (async () => {
-  console.info(await kind.list());
+  const list = await kind.list();
+  if (list) {
+    console.info(list);
+  }
 })();

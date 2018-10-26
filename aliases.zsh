@@ -20,7 +20,19 @@ function _completion_kube_pod {
 compctl -K _completion_kube_pod kube-pod-details
 # }}}
 # }}}
-
+# StatefulSet {{{
+alias kstl='kube-list statefulset'
+alias kstlw='kube-list-watch statefulset'
+alias kstR='kR statefulset'
+alias kstRa='kR statefulset --all'
+alias kstv='kube-statefulset-details'
+alias kstvi='KUBE_DETAILS_INTERACTIVE=1 kube-statefulset-details'
+# Completion {{{
+function _completion_kube_statefulset {
+  reply=($(kube-completion "statefulset"))
+}
+compctl -K _completion_kube_statefulset kube-statefulset-details
+# }}}
 # Deployments {{{
 alias kdl='kube-list deployment'
 alias kdlw='kube-list-watch deployment'
@@ -35,7 +47,6 @@ function _completion_kube_deployment {
 compctl -K _completion_kube_deployment kube-deployment-details
 # }}}
 # }}}
-
 # Services {{{
 alias ksl='kube-list service'
 alias kslw='kube-list-watch service'
@@ -50,7 +61,20 @@ function _completion_kube_service {
 compctl -K _completion_kube_service kube-service-details
 # }}}
 # }}}
-
+# CronJobs {{{
+alias kcl='kube-list cronjob'
+alias kclw='kube-list-watch cronjob'
+alias kcR='kR cronjob'
+alias kcRa='kR cronjob --all'
+alias kcv='kube-cronjob-details'
+alias kcvi='KUBE_DETAILS_INTERACTIVE=1 kube-cronjob-details'
+# Completion {{{
+function _completion_kube_cronjob {
+  reply=($(kube-completion "cronjob"))
+}
+compctl -K _completion_kube_cronjob kube-cronjob-details
+# }}}
+# }}}
 # Jobs {{{
 alias kjl='kube-list job'
 alias kjlw='kube-list-watch job'
@@ -66,20 +90,6 @@ compctl -K _completion_kube_job kube-job-details
 # }}}
 # }}}
 
-# CronJobs {{{
-alias kcl='kube-list cronjob'
-alias kclw='kube-list-watch cronjob'
-alias kcR='kR cronjob'
-alias kcRa='kR cronjob --all'
-alias kcv='kube-cronjob-details'
-alias kcvi='KUBE_DETAILS_INTERACTIVE=1 kube-cronjob-details'
-# Completion {{{
-function _completion_kube_cronjob {
-  reply=($(kube-completion "cronjob"))
-}
-compctl -K _completion_kube_cronjob kube-cronjob-details
-# }}}
-# }}}
 
 
 
