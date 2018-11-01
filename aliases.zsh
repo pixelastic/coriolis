@@ -6,6 +6,17 @@ alias kR='k delete'
 alias kc='kubectl apply -f'
 alias kga='kube-get-all'
 
+# Context {{{
+alias kct="k config current-context"
+alias kctl="kube-list context"
+alias kcts="kube-context-switch"
+# Completion {{{
+function _completion_kube_context {
+  reply=($(kube-context-completion))
+}
+compctl -K _completion_kube_context kube-context-switch
+# }}}
+# }}}
 # Pods {{{
 alias kpl='kube-list pod'
 alias kplw='kube-list-watch pod'
@@ -32,6 +43,7 @@ function _completion_kube_statefulset {
   reply=($(kube-completion "statefulset"))
 }
 compctl -K _completion_kube_statefulset kube-statefulset-details
+# }}}
 # }}}
 # Deployments {{{
 alias kdl='kube-list deployment'
@@ -62,12 +74,12 @@ compctl -K _completion_kube_service kube-service-details
 # }}}
 # }}}
 # CronJobs {{{
-alias kcl='kube-list cronjob'
-alias kclw='kube-list-watch cronjob'
-alias kcR='kR cronjob'
-alias kcRa='kR cronjob --all'
-alias kcv='kube-cronjob-details'
-alias kcvi='KUBE_DETAILS_INTERACTIVE=1 kube-cronjob-details'
+alias kcjl='kube-list cronjob'
+alias kcjlw='kube-list-watch cronjob'
+alias kcjR='kR cronjob'
+alias kcjRa='kR cronjob --all'
+alias kcjv='kube-cronjob-details'
+alias kcjvi='KUBE_DETAILS_INTERACTIVE=1 kube-cronjob-details'
 # Completion {{{
 function _completion_kube_cronjob {
   reply=($(kube-completion "cronjob"))
@@ -88,45 +100,4 @@ function _completion_kube_job {
 }
 compctl -K _completion_kube_job kube-job-details
 # }}}
-# }}}
-
-
-
-
-
-
-
-alias kgw='kg --watch'
-alias kRa='kR --all'
-alias kgaw="watch 'kubectl get all'"
-# Kind-agnostic
-alias kl='kubectl logs'
-# Pods
-alias kpRa='kR pod --all'
-# Deployment
-alias kdRa='kR deployment --all'
-# Services
-alias ksRa='kR service --all'
-# Ingresses
-alias kiRa='kR ingress --all'
-alias kiv='kgv ingress'
-
-
-# TODO: Make a kpl alias
-# If no argument, list everything
-# If argument, is it as a selector
-# kubectl get pods -l env=production,tier=frontend
-# TODO: Make a kpe alias
-# Should allow for selecting a pod, and a command
-# Or execute bash by default maybe
-# kubectl exec -it {pod-name} -- /bin/bash
-# TODO: Make a kpip alias to get a pod ip
-# Should autocomplete on the pod names, then set to json and jq it
-# TODO: Make a kpvj, kdvj, ksvj scripts to get data about pods, services and
-# deployments as json
-
-# minikube ssh: connect to the cluster
-# minikube dashboard: ???
-# 
-#
 # }}}

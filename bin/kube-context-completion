@@ -1,0 +1,10 @@
+#!/usr/bin/env node
+/* eslint-disable import/no-commonjs */
+const _ = require('lodash');
+const context = require('../build/lib/context').default;
+(async () => {
+  const list = await context.rawList();
+  _.each(list, item => {
+    console.info(item.name);
+  });
+})();
