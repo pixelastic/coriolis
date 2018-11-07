@@ -5,6 +5,7 @@ alias kgv='kg -o json'
 alias kR='k delete'
 alias kc='kubectl apply -f'
 alias kga='kube-get-all'
+alias kRa='k delete deployments,statefulsets,jobs,cronjobs,pods,services,ingress --all'
 
 # Context {{{
 alias kct="k config current-context"
@@ -24,6 +25,7 @@ alias kpR='kR pod'
 alias kpRa='kR pod --all'
 alias kpv='kube-pod-details'
 alias kpvi='KUBE_DETAILS_INTERACTIVE=1 kube-pod-details'
+alias kplo='k logs'
 # Completion {{{
 function _completion_kube_pod {
   reply=($(kube-completion "pod"))
